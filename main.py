@@ -1,22 +1,26 @@
-class Wizard:
+class Alphabet:
 
-    def __init__(self, name, raiting, look_like) -> None:
-        self.name = name
-        self.raiting = raiting
-        self.look_like = look_like
+    def __init__(self, language, letters_str):
+        self.lang = language
+        self.letters = list(letters_str)
 
-    def change_raiting(self, value):
-        if self.raiting + value > 100:
-            self.raiting = 100
-        elif self.raiting + value < 1:
-            self.raiting = 1
-        else:
-            self.raiting += value
+    # Печатаем все буквы алфавита
+    def print(self):
+        print(self.letters)
 
-        if self.raiting >= 47:
-            if self.look_like - abs(value) // 10 >= 18:
-                self.look_like -= abs(value) // 10
+    # Возвращаем количество букв в алфавите
+    def letters_num(self):
+        len(self.letters)
 
-        if self.raiting < 47:
-            if self.look_like + abs(value) // 10 <= 100:
-                self.look_like += abs(value) // 10
+
+# Английский алфавит
+class EngAlphabet(Alphabet):
+
+    __letters_num = 26
+
+    def is_en_letter(self, letter):
+        if letter.upper() in self.letters:
+            return True
+        return False
+
+
